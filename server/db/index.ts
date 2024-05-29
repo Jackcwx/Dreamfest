@@ -31,3 +31,7 @@ export async function getEventsForDay(day: string) {
     .where({ day })
   return events as EventWithLocation[]
 }
+
+export async function getLocationById(id: number) {
+  return await connection('locations').where({ id }).select('*').first()
+}
