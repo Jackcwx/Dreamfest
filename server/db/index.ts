@@ -45,3 +45,15 @@ export async function updateLocation(
     .where({ id })
     .update({ name, description })
 }
+
+export async function addNewEvent(
+  name: string,
+  description: string,
+  time: string,
+  location_id: number,
+  day: string,
+): Promise<Event> {
+  return await connection('events')
+    .insert({ name, description, time, day, location_id })
+    .returning('id')
+}
