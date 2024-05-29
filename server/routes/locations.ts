@@ -31,8 +31,7 @@ router.patch('/:id', async (req, res, next) => {
   try {
     const id = Number(req.params.id)
     const { name, description } = req.body
-    const updatedLocation = db.updateLocation(id, name, description)
-    res.json(updatedLocation)
+    db.updateLocation(id, name, description)
     res.sendStatus(204)
   } catch (e) {
     next(e)
