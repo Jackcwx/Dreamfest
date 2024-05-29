@@ -57,3 +57,7 @@ export async function addNewEvent(
     .insert({ name, description, time, day, location_id })
     .returning('id')
 }
+
+export async function deleteEvent(id: number): Promise<void> {
+  await connection('events').where({ id }).del()
+}
