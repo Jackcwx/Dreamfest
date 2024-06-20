@@ -59,5 +59,5 @@ export async function addNewEvent(
 }
 
 export async function deleteEvent(id: number): Promise<void> {
-  await connection('events').where({ id }).del()
+  return await connection('events').where({ id }).del()
 }
